@@ -280,7 +280,7 @@ export default function MysterwolfStudios() {
 
           <div style={{ opacity: 0, animation: "fadeUp 0.8s ease 0.45s forwards", display: "flex", gap: 12, flexWrap: "wrap" }}>
             <button className="btn-primary" onClick={() => scrollTo("work")}>See the work ↓</button>
-            <button className="btn-ghost" onClick={() => window.open("https://ko-fi.com", "_blank")}>Support on Ko-fi</button>
+            <button className="btn-ghost" onClick={() => window.open("https://ko-fi.com/mysterwolf", "_blank")}>Support on Ko-fi</button>
           </div>
 
           {/* Decorative rule */}
@@ -354,7 +354,7 @@ export default function MysterwolfStudios() {
               <p style={{ color: C.muted, lineHeight: 1.85, fontSize: 15, marginBottom: 36, fontWeight: 300 }}>
                 No ads. No bloat. No features designed to extract money from you. Software that does what it says and gets out of the way.
               </p>
-              <button className="btn-ghost" onClick={() => window.open("https://ko-fi.com", "_blank")}>
+              <button className="btn-ghost" onClick={() => window.open("https://ko-fi.com/mysterwolf", "_blank")}>
                 Support the work →
               </button>
             </Reveal>
@@ -420,8 +420,8 @@ export default function MysterwolfStudios() {
 
             <Reveal delay={0.15} style={{ flexShrink: 0 }}>
               <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-                <button className="btn-primary">Support on Ko-fi ↗</button>
-                <button className="btn-ghost">Get in touch</button>
+                <button className="btn-primary" onClick={() => window.open("https://ko-fi.com/mysterwolf", "_blank")}>Support on Ko-fi ↗</button>
+                <button className="btn-ghost" onClick={() => window.location.href = "mailto:info@mysterwolf.studio"}>Get in touch</button>
               </div>
             </Reveal>
 
@@ -445,9 +445,9 @@ export default function MysterwolfStudios() {
             </span>
           </div>
           <div style={{ display: "flex", gap: 28 }}>
-            {["Ko-fi", "GitHub", "Contact"].map(l => (
-              <button key={l} className="nav-link">{l}</button>
-            ))}
+            <button className="nav-link" onClick={() => window.open("https://ko-fi.com/mysterwolf", "_blank")}>Ko-fi</button>
+            <button className="nav-link" onClick={() => window.open("https://github.com/mysterwolf", "_blank")}>GitHub</button>
+            <button className="nav-link" onClick={() => window.location.href = "mailto:info@mysterwolf.studio"}>Contact</button>
           </div>
           <div style={{ fontSize: 10, color: C.muted, fontFamily: "'DM Mono', monospace", letterSpacing: "0.08em" }}>
             © 2026 — Built different.
