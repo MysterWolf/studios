@@ -17,53 +17,11 @@ const C = {
   white: "#FDFCFA",
 };
 
-const products = [
-  {
-    id: "dpad",
-    name: "DPad Pilot",
-    status: "Live",
-    statusColor: C.live,
-    category: "Utility · Android",
-    desc: "LG WebOS TV control over local WiFi. No ads. No subscription. No cloud.",
-    model: "Pay What You Want",
-  },
-  {
-    id: "mission",
-    name: "Mission Control",
-    status: "In Development",
-    statusColor: C.amber,
-    category: "E-Bike Companion · Mobile",
-    desc: "Command center for your e-bike. Rides, charges, mods, service — and an AI that knows your setup.",
-    model: "Coming Soon",
-  },
-  {
-    id: "cannaguide",
-    name: "CannaGuide",
-    status: "In Development",
-    statusColor: C.amber,
-    category: "Cannabis Companion · Mobile",
-    desc: "Know what you're buying and why before you walk in.",
-    model: "Coming Soon",
-  },
-  {
-    id: "stashpass",
-    name: "StashPass",
-    status: "Planned",
-    statusColor: C.planned,
-    category: "B2B Rewards · Web + Mobile",
-    desc: "Loyalty program infrastructure for smoke shops and dispensaries — and beyond.",
-    model: "B2B SaaS",
-  },
-  {
-    id: "processmind",
-    name: "ProcessMind",
-    status: "Planned",
-    statusColor: C.planned,
-    category: "Consulting Tool · Web",
-    desc: "Enterprise-grade process auditing at a fraction of vendor cost. Seven steps. Any industry.",
-    model: "Consulting + SaaS",
-  },
-];
+const STATUS_MAP = {
+  live: { label: "Live", color: C.live },
+  "in-development": { label: "In Development", color: C.amber },
+  planned: { label: "Planned", color: C.planned },
+};
 
 function useReveal(threshold = 0.1) {
   const ref = useRef(null);
@@ -156,6 +114,17 @@ function ProductRow({ p, index }) {
 export default function MysterwolfStudios() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    fetch("/data/apps.json")
+      .then(r => r.json())
+      .then(data => setProducts(data.map(p => ({
+        ...p,
+        status: STATUS_MAP[p.status]?.label ?? p.status,
+        statusColor: STATUS_MAP[p.status]?.color ?? C.muted,
+      }))));
+  }, []);
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 48);
@@ -317,7 +286,7 @@ export default function MysterwolfStudios() {
                 </h2>
               </div>
               <span style={{ fontSize: 11, color: C.muted, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em", alignSelf: "flex-end" }}>
-                5 products in motion · 2026
+                {products.length} products in motion · 2026
               </span>
             </div>
           </Reveal>
