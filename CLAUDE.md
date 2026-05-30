@@ -62,3 +62,20 @@ muted:      #8A8780   /* secondary text */
 - HTTPS enforced
 - Ko-fi link integrated
 - MWS mark in nav (light version)
+
+## Available Skills
+Skills live at github.com/MysterWolf/skills. Pull that repo and read README.md
+to see all available skills before starting work.
+
+Relevant skills for this repo:
+- spinup-site — reference for site architecture patterns
+- update-context — update this CLAUDE.md after session, commit and push
+- audit-repo — read-only snapshot of repo state
+- update-portfolio — add or update app entries on mysterwolf.studio
+
+## Updated Claude Code Session Starter
+"I'm working on the mysterwolf studios portfolio site at github.com/MysterWolf/studios.
+First pull github.com/MysterWolf/skills and read README.md so you know what skills are available.
+Then pull this repo and read CLAUDE.md in full. The vite.config.js base must stay as '/'.
+CNAME must be in public/ not repo root — this is a critical invariant.
+CSS variables only in :root. Confirm before making any changes."
