@@ -118,7 +118,7 @@ export default function MysterwolfStudios() {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch("/data/apps.json")
+    fetch("/data/apps.json?v=" + Date.now())
       .then(r => r.json())
       .then(data => setProducts(data.map(p => ({
         ...p,
