@@ -15,6 +15,21 @@
     "cta": "Beta — coming soon to Amazon Appstore"
   },
   {
+    "id": "dpad-samsung",
+    "name": "DPad Pilot 4 Samsung",
+    "tagline": "Your Samsung TV remote. No nonsense.",
+    "status": "planned",
+    "category": "Utility · Android",
+    "desc": "Samsung Smart TV control over local WiFi. No ads. No subscription. No cloud.",
+    "expandedDesc": "Your Samsung remote is somewhere. Your phone always is. DPad Pilot 4 Samsung turns your Android phone into a full-featured Samsung Smart TV remote over your home WiFi — no pairing, no account, no ads.\n\nFull D-pad navigation, playback controls, volume, and app launching. Saves and names multiple Samsung TVs. Connects automatically on launch when one TV is saved.\n\nOne-time setup, then it just works. No ongoing configuration, no cloud dependency, no subscription.",
+    "model": "Pay What You Want",
+    "platform": "android",
+    "price": "free",
+    "priceModel": "pwyw",
+    "kofiUrl": "https://ko-fi.com/mysterwolf",
+    "cta": "Coming soon"
+  },
+  {
     "id": "dpad",
     "name": "DPad Pilot",
     "status": "live",
