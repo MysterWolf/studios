@@ -1,5 +1,20 @@
 [
   {
+    "id": "dpad-flame",
+    "name": "DPad Flame",
+    "tagline": "Your Fire TV remote. No nonsense.",
+    "status": "beta",
+    "category": "Utility · Android",
+    "desc": "Control your Amazon Fire TV from your Android phone over local WiFi. No account, no ads, no subscription. One-tap launch for Netflix, Prime Video, Disney+, Hulu, Max, and YouTube TV.",
+    "expandedDesc": "Your Fire TV remote gets lost. Your phone doesn't. DPad Flame turns your Android phone into a full-featured Fire TV remote over your home WiFi — no Bluetooth pairing, no account required, no ads.\n\nFull D-pad navigation, playback controls, volume, and keypad. One-tap launch for Netflix, Prime Video, Disney+, Hulu, Max, and YouTube TV. Saves and names multiple Fire TV devices. Connects automatically on launch when one device is saved.\n\nOne-time setup on your Fire TV (enable ADB Debugging in Developer Options), connect once, and you're done. No ongoing configuration, no cloud dependency, no subscription. Just a remote that works.",
+    "model": "Pay What You Want",
+    "platform": "android",
+    "price": "free",
+    "priceModel": "pwyw",
+    "kofiUrl": "https://ko-fi.com/mysterwolf",
+    "cta": "Beta — coming soon to Amazon Appstore"
+  },
+  {
     "id": "dpad",
     "name": "DPad Pilot",
     "status": "live",
