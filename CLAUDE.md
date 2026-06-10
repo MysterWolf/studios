@@ -37,19 +37,23 @@ muted:      #8A8780   /* secondary text */
 
 ## Portfolio Data (`public/data/apps.json`)
 
+**This is the only place products are defined.** The component fetches this file at runtime — there is no hardcoded product list in the JSX.
+
 | Field | Required | Notes |
 |-------|----------|-------|
 | `id` | Yes | kebab-case unique ID |
 | `name` | Yes | Display name |
-| `status` | Yes | `live`, `beta`, `in-development`, `planned` |
+| `status` | Yes | Must match a key in `STATUS_MAP` — see below |
 | `category` | Yes | Format: `"Type · Platform"` |
 | `desc` | Yes | One-sentence card description |
 | `model` | Yes | Pricing model string |
-| `tagline`, `expandedDesc`, `kofiUrl`, `cta`, `storeUrl` | No | Optional — stored for future use |
+| `tagline`, `expandedDesc`, `kofiUrl`, `cta`, `storeUrl` | No | Optional — stored for future expanded card UI |
 
 **Entry order:** live → beta → in-development → planned.
 
-**STATUS_MAP** lives at the top of `MysterwolfStudios.jsx`. Any new status value must be registered there before deploying or it renders as unstyled muted text.
+**To add a new app:** add an entry to `apps.json` and run `npm run deploy`. No component changes needed.
+
+**STATUS_MAP** lives at the top of `MysterwolfStudios.jsx`. Any new status value must be added there before adding it to `apps.json`, or it renders as unstyled muted text.
 
 Current statuses: `live` (green `#2D7A4F`), `beta` (blue `#2860A8`), `in-development` (amber `#B06820`), `planned` (muted `#7A7770`).
 
@@ -66,6 +70,8 @@ Current statuses: `live` (green `#2D7A4F`), `beta` (blue `#2860A8`), `in-develop
 - **CNAME file must contain mysterwolf.studio** — do not delete or modify
 - **CSS variables live only in :root block** — never hardcode colors
 - **MWS brand palette only** — this is not a client site
+- **Products are ALWAYS loaded from `public/data/apps.json`** — never hardcode a products array in the component. The portfolio will grow to many apps. To add or update a product, edit `apps.json` only. The component fetches with `?v=Date.now()` cache-bust on every load.
+- **`STATUS_MAP` in `MysterwolfStudios.jsx` is the only place status strings map to colors** — add new status values there before adding them to `apps.json`. Do not add `statusColor` or any color field to `apps.json` entries.
 
 ## Pending Work
 1. Add ProcessMind LLC link when site is live
@@ -76,6 +82,10 @@ Current statuses: `live` (green `#2D7A4F`), `beta` (blue `#2860A8`), `in-develop
 
 ## Changelog
 ### June 2026
+- Component redesign: new layout with scroll-reveal animations, `Reveal` component, `ProductRow` component
+- Reverted to JSON-driven product list — `products` state fetched from `public/data/apps.json` at runtime, never hardcoded in JSX
+- Product count in section header is now dynamic (`products.length`)
+- `STATUS_MAP` added to component — maps JSON status strings to display labels and colors
 - DPad Flame added to portfolio (status: beta, blue badge)
 - DPad Pilot 4 Samsung added to portfolio (status: planned)
 - `beta` status registered in STATUS_MAP (#2860A8)

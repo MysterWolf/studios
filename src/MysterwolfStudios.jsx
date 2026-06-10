@@ -17,11 +17,13 @@ const C = {
   white: "#FDFCFA",
 };
 
+// ── STATUS MAP ──────────────────────────────────────────────────────────────
+// Add new statuses here before adding entries to public/data/apps.json.
 const STATUS_MAP = {
-  live: { label: "Live", color: C.live },
-  beta: { label: "Beta", color: "#2860A8" },
+  live:             { label: "Live",           color: C.live },
+  beta:             { label: "Beta",           color: "#2860A8" },
   "in-development": { label: "In Development", color: C.amber },
-  planned: { label: "Planned", color: C.planned },
+  planned:          { label: "Planned",        color: C.planned },
 };
 
 function useReveal(threshold = 0.1) {
@@ -58,6 +60,7 @@ function Rule({ style = {} }) {
 function ProductRow({ p, index }) {
   const [hovered, setHovered] = useState(false);
   const [ref, visible] = useReveal();
+  const { label: statusLabel, color: statusColor } = STATUS_MAP[p.status] ?? { label: p.status, color: C.muted };
   return (
     <div ref={ref} style={{
       opacity: visible ? 1 : 0,
@@ -86,11 +89,11 @@ function ProductRow({ p, index }) {
             }}>{p.name}</div>
             <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
               <div style={{
-                width: 6, height: 6, borderRadius: "50%", background: p.statusColor, flexShrink: 0,
-                boxShadow: p.statusColor === C.live ? `0 0 0 2px ${C.live}33` : "none",
+                width: 6, height: 6, borderRadius: "50%", background: statusColor, flexShrink: 0,
+                boxShadow: p.status === "live" ? `0 0 0 2px ${C.live}33` : "none",
               }} />
-              <span style={{ fontSize: 11, color: p.statusColor, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em" }}>
-                {p.status}
+              <span style={{ fontSize: 11, color: statusColor, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em" }}>
+                {statusLabel}
               </span>
             </div>
           </div>
@@ -113,18 +116,15 @@ function ProductRow({ p, index }) {
 }
 
 export default function MysterwolfStudios() {
-  const [scrolled, setScrolled] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [products, setProducts] = useState([]);
+  const [scrolled,  setScrolled]  = useState(false);
+  const [menuOpen,  setMenuOpen]  = useState(false);
+  const [products,  setProducts]  = useState([]);
 
   useEffect(() => {
-    fetch("/data/apps.json?v=" + Date.now())
+    fetch(`/data/apps.json?v=${Date.now()}`)
       .then(r => r.json())
-      .then(data => setProducts(data.map(p => ({
-        ...p,
-        status: STATUS_MAP[p.status]?.label ?? p.status,
-        statusColor: STATUS_MAP[p.status]?.color ?? C.muted,
-      }))));
+      .then(setProducts)
+      .catch(console.error);
   }, []);
 
   useEffect(() => {
@@ -250,7 +250,7 @@ export default function MysterwolfStudios() {
 
           <div style={{ opacity: 0, animation: "fadeUp 0.8s ease 0.45s forwards", display: "flex", gap: 12, flexWrap: "wrap" }}>
             <button className="btn-primary" onClick={() => scrollTo("work")}>See the work ↓</button>
-            <button className="btn-ghost" onClick={() => window.open("https://ko-fi.com/mysterwolf", "_blank")}>Support on Ko-fi</button>
+            <button className="btn-ghost" onClick={() => window.open("https://ko-fi.com", "_blank")}>Support on Ko-fi</button>
           </div>
 
           {/* Decorative rule */}
@@ -324,7 +324,7 @@ export default function MysterwolfStudios() {
               <p style={{ color: C.muted, lineHeight: 1.85, fontSize: 15, marginBottom: 36, fontWeight: 300 }}>
                 No ads. No bloat. No features designed to extract money from you. Software that does what it says and gets out of the way.
               </p>
-              <button className="btn-ghost" onClick={() => window.open("https://ko-fi.com/mysterwolf", "_blank")}>
+              <button className="btn-ghost" onClick={() => window.open("https://ko-fi.com", "_blank")}>
                 Support the work →
               </button>
             </Reveal>
@@ -332,7 +332,7 @@ export default function MysterwolfStudios() {
             <Reveal delay={0.15}>
               <div className="stat-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 1, background: C.border }}>
                 {[
-                  { n: "5", label: "Products in development" },
+                  { n: "6", label: "Products in development" },
                   { n: "3", label: "AI-enabled applications" },
                   { n: "4+", label: "Industries covered" },
                   { n: "∞", label: "Lines written today" },
@@ -390,8 +390,8 @@ export default function MysterwolfStudios() {
 
             <Reveal delay={0.15} style={{ flexShrink: 0 }}>
               <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-                <button className="btn-primary" onClick={() => window.open("https://ko-fi.com/mysterwolf", "_blank")}>Support on Ko-fi ↗</button>
-                <button className="btn-ghost" onClick={() => window.location.href = "mailto:info@mysterwolf.studio"}>Get in touch</button>
+                <button className="btn-primary">Support on Ko-fi ↗</button>
+                <button className="btn-ghost">Get in touch</button>
               </div>
             </Reveal>
 
@@ -415,9 +415,9 @@ export default function MysterwolfStudios() {
             </span>
           </div>
           <div style={{ display: "flex", gap: 28 }}>
-            <button className="nav-link" onClick={() => window.open("https://ko-fi.com/mysterwolf", "_blank")}>Ko-fi</button>
-            <button className="nav-link" onClick={() => window.open("https://github.com/mysterwolf", "_blank")}>GitHub</button>
-            <button className="nav-link" onClick={() => window.location.href = "mailto:info@mysterwolf.studio"}>Contact</button>
+            {["Ko-fi", "GitHub", "Contact"].map(l => (
+              <button key={l} className="nav-link">{l}</button>
+            ))}
           </div>
           <div style={{ fontSize: 10, color: C.muted, fontFamily: "'DM Mono', monospace", letterSpacing: "0.08em" }}>
             © 2026 — Built different.
