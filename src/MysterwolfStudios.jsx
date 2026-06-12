@@ -22,6 +22,7 @@ const C = {
 const STATUS_MAP = {
   live:             { label: "Live",           color: C.live },
   beta:             { label: "Beta",           color: "#2860A8" },
+  "field-testing":  { label: "Field Testing",  color: C.amber },
   "in-development": { label: "In Development", color: C.amber },
   planned:          { label: "Planned",        color: C.planned },
 };

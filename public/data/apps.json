@@ -40,7 +40,7 @@
   {
     "id": "mission",
     "name": "Mission Control",
-    "status": "in-development",
+    "status": "field-testing",
     "category": "E-Bike Companion · Mobile",
     "desc": "Command center for your e-bike. Rides, charges, mods, service — and an AI that knows your setup.",
     "model": "Coming Soon"
@@ -60,6 +60,14 @@
     "category": "Utility · Android",
     "desc": "Android Auto for cyclists. Spoke reads your texts aloud while you ride, silences calls, and sends an auto-reply so nobody wonders where you are.",
     "model": "Pay What You Want"
+  },
+  {
+    "id": "attenuate",
+    "name": "Attenuate",
+    "status": "beta",
+    "category": "Utility · Android",
+    "desc": "Your inbox is noise. Attenuate it. Bulk delete Gmail at scale — by sender, by category, by AI rule. No organizing, no unsubscribing. Just deletion.",
+    "model": "Free · PWYW"
   },
   {
     "id": "stashpass",

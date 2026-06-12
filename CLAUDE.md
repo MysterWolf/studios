@@ -55,7 +55,7 @@ muted:      #8A8780   /* secondary text */
 
 **STATUS_MAP** lives at the top of `MysterwolfStudios.jsx`. Any new status value must be added there before adding it to `apps.json`, or it renders as unstyled muted text.
 
-Current statuses: `live` (green `#2D7A4F`), `beta` (blue `#2860A8`), `in-development` (amber `#B06820`), `planned` (muted `#7A7770`).
+Current statuses: `live` (green `#2D7A4F`), `beta` (blue `#2860A8`), `field-testing` (amber `#B06820`), `in-development` (amber `#B06820`), `planned` (muted `#7A7770`).
 
 ## Architecture Decisions
 - Single page, scrolling sections
@@ -82,6 +82,10 @@ Current statuses: `live` (green `#2D7A4F`), `beta` (blue `#2860A8`), `in-develop
 
 ## Changelog
 ### June 2026
+- Attenuate status: `in-development` → `beta`
+- Mission Control status: `in-development` → `field-testing` (new status, amber `#B06820`)
+- `field-testing` added to `STATUS_MAP` in `MysterwolfStudios.jsx` with label "Field Testing" and `C.amber` color
+
 - Component redesign: new layout with scroll-reveal animations, `Reveal` component, `ProductRow` component
 - Reverted to JSON-driven product list — `products` state fetched from `public/data/apps.json` at runtime, never hardcoded in JSX
 - Product count in section header is now dynamic (`products.length`)
