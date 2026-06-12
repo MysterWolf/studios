@@ -1,6 +1,6 @@
 # mysterwolf studios — Claude Context
 **Last updated:** June 2026
-**Version:** 1.1.0
+**Version:** 1.2.0
 
 ## What This Is
 The main portfolio site for mysterwolf studios — developer identity, app portfolio, The Vibe Lab. Built in React/Vite, deployed to GitHub Pages with custom domain. Showcases apps built by mysterwolf studios. Clean editorial minimal aesthetic — Playfair Display headlines, warm off-white background, gold accent.
@@ -49,7 +49,7 @@ muted:      #8A8780   /* secondary text */
 | `model` | Yes | Pricing model string |
 | `tagline`, `expandedDesc`, `kofiUrl`, `cta`, `storeUrl` | No | Optional — stored for future expanded card UI |
 
-**Entry order:** live → beta → in-development → planned.
+**Entry order:** live → beta → field-testing → in-development → planned.
 
 **To add a new app:** add an entry to `apps.json` and run `npm run deploy`. No component changes needed.
 
