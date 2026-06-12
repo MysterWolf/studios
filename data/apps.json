@@ -40,7 +40,7 @@
   {
     "id": "mission",
     "name": "Mission Control",
-    "status": "in-development",
+    "status": "field-testing",
     "category": "E-Bike Companion · Mobile",
     "desc": "Command center for your e-bike. Rides, charges, mods, service — and an AI that knows your setup.",
     "model": "Coming Soon"
@@ -64,7 +64,7 @@
   {
     "id": "attenuate",
     "name": "Attenuate",
-    "status": "in-development",
+    "status": "beta",
     "category": "Utility · Android",
     "desc": "Your inbox is noise. Attenuate it. Bulk delete Gmail at scale — by sender, by category, by AI rule. No organizing, no unsubscribing. Just deletion.",
     "model": "Free · PWYW"
