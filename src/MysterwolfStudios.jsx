@@ -333,7 +333,7 @@ export default function MysterwolfStudios() {
             <Reveal delay={0.15}>
               <div className="stat-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 1, background: C.border }}>
                 {[
-                  { n: "6", label: "Products in development" },
+                  { n: "7", label: "Products in development" },
                   { n: "3", label: "AI-enabled applications" },
                   { n: "4+", label: "Industries covered" },
                   { n: "∞", label: "Lines written today" },
