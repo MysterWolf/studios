@@ -85,6 +85,7 @@ Current statuses: `live` (green `#2D7A4F`), `beta` (blue `#2860A8`), `field-test
 - Attenuate status: `in-development` → `beta`
 - Mission Control status: `in-development` → `field-testing` (new status, amber `#B06820`)
 - `field-testing` added to `STATUS_MAP` in `MysterwolfStudios.jsx` with label "Field Testing" and `C.amber` color
+- "Products in development" stat bumped from 6 → 7
 
 - Component redesign: new layout with scroll-reveal animations, `Reveal` component, `ProductRow` component
 - Reverted to JSON-driven product list — `products` state fetched from `public/data/apps.json` at runtime, never hardcoded in JSX
